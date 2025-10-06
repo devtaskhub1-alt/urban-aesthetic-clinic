@@ -3,39 +3,114 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Urban Aesthetic & Therapy — Premium Clinic</title>
+<meta name="description" content="Urban Aesthetic & Therapy - Premium medical aesthetic treatments including HydraFacial MD, Morpheus8, Botox, and advanced skincare. Board-certified practitioners, FDA-approved treatments." />
+<meta name="keywords" content="aesthetic clinic, medical spa, HydraFacial, Morpheus8, Botox, dermal fillers, chemical peels, skincare, aesthetic medicine" />
+<title>Urban Aesthetic & Therapy — Premium Medical Aesthetic Clinic</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<!-- Enhanced Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
 <style>
-  /* ---------- THEME VARIABLES ---------- */
+  /* ---------- ENHANCED THEME VARIABLES ---------- */
   :root{
-    --bg: #0a0a0a;
-    --card-bg: rgba(255,255,255,0.04);
-    --muted: #c5c5c5;
-    --gold-1: #e8c87c;
-    --gold-2: #d4af37;
-    --accent: #f4e4c1;
-    --glass: rgba(255,255,255,0.06);
-    --text: #f8f8f8;
-    --soft: rgba(255,255,255,0.08);
+    --bg: #0f0f0f;
+    --card-bg: rgba(255,255,255,0.03);
+    --muted: #b0b0b0;
+    --gold-1: #d4af37;
+    --gold-2: #b8941f;
+    --gold-3: #f4e4c1;
+    --accent: #faf6e8;
+    --glass: rgba(255,255,255,0.05);
+    --text: #ffffff;
+    --text-secondary: #e0e0e0;
+    --soft: rgba(255,255,255,0.06);
     --max-width: 1400px;
+    --shadow-light: 0 4px 20px rgba(0,0,0,0.1);
+    --shadow-medium: 0 8px 40px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 20px 60px rgba(0,0,0,0.3);
+    --border-radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  /* ---------- LOADING ANIMATION ---------- */
+  .page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .page-loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loader-content {
+    text-align: center;
+  }
+  .loader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .loader-progress {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+    border-radius: 10px;
+    animation: loading-bar 3s ease-out forwards;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  
+  @keyframes loading-bar {
+    0% { width: 0; }
+    100% { width: 100%; }
   }
 
   body[data-theme="light"] {
-    --bg: #faf7f2;
-    --card-bg: rgba(10,10,10,0.02);
-    --muted: #333333;
-    --text: #111111;
-    --soft: rgba(0,0,0,0.04);
+    --bg: #fdfcf9;
+    --card-bg: rgba(0,0,0,0.02);
+    --muted: #6b6b6b;
+    --text: #1a1a1a;
+    --text-secondary: #2d2d2d;
+    --soft: rgba(0,0,0,0.03);
+    --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-medium: 0 8px 40px rgba(0,0,0,0.12);
+    --shadow-heavy: 0 20px 60px rgba(0,0,0,0.25);
   }
 
   /* ---------- RESET ---------- */
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;overflow-x:hidden}
   body{
-    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
     background: var(--bg);
     color:var(--text);
     -webkit-font-smoothing:antialiased;
@@ -43,6 +118,7 @@
     scroll-behavior:smooth;
     line-height:1.6;
     position: relative;
+    letter-spacing: -0.01em;
   }
 
   /* ---------- ANIMATED BACKGROUND ---------- */
@@ -101,54 +177,76 @@
     z-index: 1;
   }
 
-  /* ---------- LAYOUT ---------- */
+  /* ---------- ENHANCED LAYOUT ---------- */
   header{
-    position:fixed;left:0;right:0;top:0;height:80px;
+    position:fixed;left:0;right:0;top:0;height:85px;
     display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg, rgba(10,10,10,0.95), rgba(20,20,20,0.92));
-    border-bottom:1px solid rgba(232,200,124,0.15);
+    background:linear-gradient(135deg, rgba(15,15,15,0.97), rgba(25,25,25,0.94));
+    border-bottom:1px solid rgba(212,175,55,0.2);
     z-index:999;
-    backdrop-filter: blur(20px);
-    transition:all .4s cubic-bezier(.4,0,.2,1);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(30px);
+    transition: var(--transition);
+    box-shadow: var(--shadow-medium);
   }
   header.scrolled{
-    background:linear-gradient(135deg, rgba(10,10,10,0.98), rgba(15,15,15,0.96));
-    box-shadow:0 10px 40px rgba(0,0,0,0.7);
-    height: 72px;
+    background:linear-gradient(135deg, rgba(15,15,15,0.98), rgba(20,20,20,0.96));
+    box-shadow: var(--shadow-heavy);
+    height: 75px;
+    border-bottom-color: rgba(212,175,55,0.3);
   }
 
-  .navwrap{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;padding:0 30px;margin:auto}
+  .navwrap{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;padding:0 40px;margin:auto}
   .brand{
     font-family:'Playfair Display',serif;
     font-weight:700;
-    font-size:1.4rem;
-    background: linear-gradient(135deg,#e8c87c,#d4af37,#b8984f);
+    font-size:1.6rem;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
-    letter-spacing:0.5px;
+    letter-spacing:0.3px;
+    position: relative;
+    transition: var(--transition);
   }
-  nav ul{display:flex;gap:24px;list-style:none;align-items:center}
+  .brand::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+    transition: width 0.4s ease;
+  }
+  .brand:hover::after {
+    width: 100%;
+  }
+  nav ul{display:flex;gap:32px;list-style:none;align-items:center}
   nav a{
-    color:var(--muted);
+    color:var(--text-secondary);
     text-decoration:none;
-    font-weight:600;
+    font-weight:500;
     font-size:0.95rem;
     position:relative;
-    transition: color .3s;
+    transition: var(--transition);
+    padding: 8px 0;
+    letter-spacing: -0.005em;
   }
   nav a::after{
     content:"";
     position:absolute;
     left:0;
-    bottom:-6px;
+    bottom:0;
     width:0;
     height:2px;
-    background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
-    transition:width .3s;
+    background:linear-gradient(90deg, var(--gold-1), var(--gold-2));
+    transition: width 0.4s ease;
+    border-radius: 1px;
   }
-  nav a:hover{color:var(--gold-1)}
+  nav a:hover{
+    color: var(--gold-1);
+    transform: translateY(-1px);
+  }
   nav a:hover::after{width:100%}
 
   .theme-btn{
@@ -168,20 +266,20 @@
     box-shadow:0 10px 30px rgba(183,150,80,0.25);
   }
 
-  main{margin-top:80px}
+  main{margin-top:85px}
 
-  /* ---------- HERO ---------- */
+  /* ---------- ENHANCED HERO ---------- */
   #hero{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:8rem 20px 6rem;
+    padding:8rem 40px 6rem;
     position:relative;
     overflow:hidden;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(10,10,10,0.75)), 
-                url("https://images.unsplash.com/photo-1519494140681-8b17d830a3ec?auto=format&fit=crop&w=2400&q=90");
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(15,15,15,0.8)), 
+                url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2400&q=90");
     background-size:cover;
     background-position:center;
     background-attachment: fixed;
@@ -190,33 +288,44 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(232,200,124,0.08), transparent 70%);
+    background: radial-gradient(ellipse at 50% 60%, rgba(212,175,55,0.12), transparent 70%);
     pointer-events: none;
+    z-index: 1;
   }
-  #hero .container{max-width:1100px;margin:auto;z-index:5;position:relative}
+  #hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(212,175,55,0.03) 50%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  #hero .container{max-width:1200px;margin:auto;z-index:10;position:relative}
   #hero h1{
     font-family:'Playfair Display',serif;
-    font-weight:700;
-    font-size:4rem;
-    margin-bottom:20px;
-    background:linear-gradient(135deg,#f4e4c1,#e8c87c,#d4af37);
+    font-weight:800;
+    font-size:4.5rem;
+    margin-bottom:24px;
+    background:linear-gradient(135deg, var(--gold-3), var(--gold-1), var(--gold-2));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
-    letter-spacing:1px;
-    line-height: 1.15;
+    letter-spacing:0.5px;
+    line-height: 1.1;
     animation: fadeInUp 1s ease-out;
+    text-shadow: 0 4px 20px rgba(212,175,55,0.3);
   }
   #hero p{
-    color:rgba(255,255,255,0.95);
-    font-size:1.2rem;
-    margin-bottom:32px;
-    max-width:850px;
+    color:rgba(255,255,255,0.92);
+    font-size:1.3rem;
+    margin-bottom:40px;
+    max-width:900px;
     margin-left:auto;
     margin-right:auto;
-    line-height:1.7;
-    font-weight: 300;
+    line-height:1.6;
+    font-weight: 400;
     animation: fadeInUp 1s ease-out 0.2s both;
+    letter-spacing: -0.01em;
   }
   .hero-ctas{
     display:flex;
@@ -238,137 +347,226 @@
   }
 
   .btn{
-    background:linear-gradient(135deg,#e8c87c,#d4af37);
-    padding:14px 32px;
-    border-radius:999px;
+    background:linear-gradient(135deg, var(--gold-1), var(--gold-2));
+    padding:16px 40px;
+    border-radius:50px;
     color:#0a0a0a;
-    font-weight:700;
+    font-weight:600;
     text-decoration:none;
-    box-shadow:0 10px 40px rgba(232,200,124,0.25);
-    transition:all .3s cubic-bezier(.4,0,.2,1);
+    box-shadow: var(--shadow-medium), 0 0 30px rgba(212,175,55,0.3);
+    transition: var(--transition);
     display: inline-block;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn:hover::before {
+    left: 100%;
   }
   .btn.secondary{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(232,200,124,0.3);
-    color:var(--accent);
-    backdrop-filter: blur(10px);
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(212,175,55,0.4);
+    color: var(--gold-3);
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-light);
   }
   .btn:hover{
-    transform:translateY(-4px) scale(1.02);
-    box-shadow:0 15px 50px rgba(232,200,124,0.4);
+    transform:translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-heavy), 0 0 40px rgba(212,175,55,0.4);
   }
   .btn.secondary:hover{
-    background:rgba(255,255,255,0.12);
-    border-color: rgba(232,200,124,0.5);
+    background:rgba(255,255,255,0.1);
+    border-color: rgba(212,175,55,0.6);
+    transform:translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-medium), 0 0 30px rgba(212,175,55,0.2);
   }
 
   /* ---------- PARTICLES (gold dust) ---------- */
   #particles{position:absolute;inset:0;pointer-events:none;z-index:3}
 
-  /* ---------- SECTIONS ---------- */
+  /* ---------- ENHANCED SECTIONS ---------- */
   section{
-    padding:100px 30px;
+    padding:120px 40px;
     max-width:var(--max-width);
     margin:0 auto;
     opacity:0;
-    transform:translateY(30px);
-    transition:all .8s cubic-bezier(.2,.9,.2,1)
+    transform:translateY(40px);
+    transition:all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
   }
-  section.visible{opacity:1;transform:translateY(0)}
+  section.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+    opacity: 0.6;
+  }
 
   h2{
     font-family:'Playfair Display',serif;
-    font-size:2.8rem;
-    background: linear-gradient(135deg,#e8c87c,#d4af37);
+    font-size:3.2rem;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
     text-align:center;
-    margin-bottom:16px;
+    margin-bottom:24px;
     font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
   .lead{
-    color:var(--muted);
+    color:var(--text-secondary);
     text-align:center;
-    max-width:900px;
-    margin:0 auto 30px;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    max-width:950px;
+    margin:0 auto 50px;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
-  /* ---------- SERVICES GRID ---------- */
+  /* ---------- SCROLL PROGRESS INDICATOR ---------- */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-1), var(--gold-2), var(--gold-3));
+    z-index: 1000;
+    transition: width 0.25s ease;
+  }
+  
+  /* ---------- ENHANCED SERVICES GRID ---------- */
   .services{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-    margin-top:50px
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:40px;
+    margin-top:60px;
+    padding: 0 20px;
   }
   .service{
-    background:linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    border-radius:20px;
+    background:linear-gradient(145deg, var(--card-bg), rgba(255,255,255,0.01));
+    border-radius: var(--border-radius);
     padding:0;
-    border:1px solid rgba(232,200,124,0.15);
-    transition:all .4s cubic-bezier(.4,0,.2,1);
+    border:1px solid rgba(212,175,55,0.12);
+    transition: var(--transition);
     display:flex;
     flex-direction:column;
     gap:0;
     overflow: hidden;
     position: relative;
+    backdrop-filter: blur(10px);
   }
   .service::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(232,200,124,0.05), transparent);
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent 70%);
     opacity: 0;
-    transition: opacity .4s;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+  }
+  .service::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-1), var(--gold-2), var(--gold-1));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
   }
   .service:hover::before {
     opacity: 1;
   }
+  .service:hover::after {
+    transform: scaleX(1);
+  }
   .service:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 30px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(232,200,124,0.3);
-    border-color: rgba(232,200,124,0.4);
+    transform:translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-heavy), 0 0 0 1px rgba(212,175,55,0.25);
+    border-color: rgba(212,175,55,0.3);
   }
   .service img{
     width:100%;
-    height:260px;
+    height:280px;
     object-fit:cover;
     border-radius:0;
-    transition: transform .4s;
+    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 2;
   }
   .service:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
   .service h3{
-    color:var(--gold-1);
+    color: var(--gold-1);
     margin:0;
-    padding: 20px 20px 0;
-    font-size: 1.25rem;
+    padding: 24px 24px 8px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
   }
   .service p {
-    padding: 8px 20px;
-    color: var(--muted);
+    padding: 0 24px 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
   }
   .meta{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-top:auto;
-    color:var(--muted);
-    font-weight:600;
-    padding: 0 20px 20px;
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight:500;
+    padding: 0 24px 24px;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
   }
   .meta .price {
     color: var(--gold-1);
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .meta .duration {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .meta .duration::before {
+    content: '🕐';
+    font-size: 0.85rem;
   }
 
   /* ---------- PRICING ---------- */
@@ -664,24 +862,167 @@
     opacity: 0.7;
   }
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:980px){
-    .contact-grid{grid-template-columns:1fr}
-    nav ul{display:none}
-    #hero h1{font-size:2.5rem}
-    h2{font-size:2.2rem}
-    header{height:70px}
-    header.scrolled{height:65px}
-    main{margin-top:70px}
-    .services{grid-template-columns:1fr}
-    .pricing{grid-template-columns:1fr}
-    .team{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    section{padding:60px 20px}
-    .navwrap{padding: 0 20px}
+  /* ---------- ENHANCED RESPONSIVE DESIGN ---------- */
+  @media (max-width: 1200px) {
+    :root {
+      --max-width: 1100px;
+    }
+    .services {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+  }
+  
+  @media (max-width: 980px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    #hero h1 { font-size: 3rem; line-height: 1.1; }
+    #hero p { font-size: 1.1rem; padding: 0 20px; }
+    h2 { font-size: 2.5rem; }
+    header { height: 75px; }
+    header.scrolled { height: 70px; }
+    main { margin-top: 75px; }
+    .services { grid-template-columns: 1fr; padding: 0 10px; }
+    .pricing { grid-template-columns: 1fr; }
+    .team { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    section { padding: 80px 30px; }
+    .navwrap { padding: 0 30px; }
+    .brand { font-size: 1.4rem; }
+    
+    /* About section mobile fix */
+    #about > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+    }
+    
+    /* Results gallery mobile */
+    #results > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+      gap: 25px;
+    }
+    
+    /* Certifications mobile */
+    #certifications > div[style*="grid-template-columns"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 25px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    #hero h1 { font-size: 2.2rem; }
+    #hero p { font-size: 1rem; }
+    h2 { font-size: 2rem; }
+    section { padding: 60px 20px; }
+    .navwrap { padding: 0 20px; }
+    .brand { font-size: 1.2rem; }
+    .services { padding: 0; }
+    .hero-ctas { flex-direction: column; gap: 12px; }
+    .btn { padding: 14px 30px; font-size: 0.95rem; }
+    
+    /* Mobile service cards */
+    .service h3 { font-size: 1.2rem; padding: 20px 20px 8px; }
+    .service p { padding: 0 20px 12px; font-size: 0.9rem; }
+    .meta { padding: 0 20px 20px; font-size: 0.85rem; }
+    
+    /* Mobile team cards */
+    .team { grid-template-columns: 1fr; }
+    
+    /* Mobile pricing */
+    .price-card[style*="transform:scale"] {
+      transform: scale(1) !important;
+      border: 1px solid var(--gold-1) !important;
+    }
+    
+    /* Certifications mobile - single column */
+    #certifications > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+    
+    /* Hero info bar mobile */
+    #hero div[style*="display:flex"] {
+      flex-direction: column !important;
+      gap: 12px !important;
+      font-size: 1rem !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand { font-size: 1.1rem; }
+    #hero { padding: 6rem 15px 4rem; }
+    #hero h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    #hero p { font-size: 0.95rem; margin-bottom: 30px; }
+    h2 { font-size: 1.7rem; }
+    section { padding: 50px 15px; }
+    .service img { height: 200px; }
+    .lead { font-size: 1rem; margin-bottom: 30px; }
+  }
+  
+  /* ---------- ACCESSIBILITY IMPROVEMENTS ---------- */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Focus styles for keyboard navigation */
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid var(--gold-1);
+    outline-offset: 2px;
+  }
+  
+  /* Improved contrast for better readability */
+  @media (prefers-contrast: high) {
+    :root {
+      --text: #ffffff;
+      --text-secondary: #ffffff;
+      --muted: #cccccc;
+      --gold-1: #ffdd44;
+    }
+  }
+  
+  /* Reduced motion for users with vestibular disorders */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-progress {
+      transition: none;
+    }
+    
+    .page-loader {
+      display: none !important;
+    }
   }
 </style>
 </head>
 <body>
+
+<!-- LOADING SCREEN -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-content">
+    <div class="loader-logo">Urban Aesthetic</div>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+    <div style="margin-top:16px;color:var(--gold-1);font-size:0.9rem;letter-spacing:2px">LOADING EXCELLENCE</div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ANIMATED BACKGROUND -->
 <div class="animated-bg">
@@ -699,16 +1040,16 @@
     <nav>
       <ul>
         <li><a href="#hero">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#hours">Hours</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#services" aria-label="View our aesthetic services">Services</a></li>
+        <li><a href="#pricing" aria-label="View treatment pricing">Pricing</a></li>
+        <li><a href="#hours" aria-label="View clinic hours">Hours</a></li>
+        <li><a href="#team" aria-label="Meet our medical team">Team</a></li>
+        <li><a href="#faq" aria-label="Frequently asked questions">FAQ</a></li>
+        <li><a href="#contact" aria-label="Contact information and booking">Contact</a></li>
       </ul>
     </nav>
 
-    <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+    <button class="theme-btn" id="themeToggle" title="Toggle light/dark theme" aria-label="Toggle light and dark theme">🌙</button>
   </div>
 </header>
 
@@ -716,13 +1057,17 @@
 <section id="hero" aria-label="Hero section">
   <canvas id="particles"></canvas>
   <div class="container">
-    <h1>Science-Led Care • Luxurious Experience</h1>
-    <p>Premium facial treatments & aesthetic therapy — evidence-based care delivered in a calming luxury clinical environment.</p>
+    <h1>Advanced Aesthetic Excellence • Transformative Results</h1>
+    <p>Experience the pinnacle of aesthetic medicine with our cutting-edge treatments, FDA-approved technologies, and board-certified practitioners. Where science meets luxury in every personalized treatment journey.</p>
     <div class="hero-ctas">
       <a class="btn" href="#services">Explore Services</a>
       <a class="btn secondary" href="#contact">Request Consultation</a>
     </div>
-    <div style="margin-top:20px;color:rgba(255,255,255,0.85);font-size:1.05rem">Open Mon–Fri 10:00–20:00 • Fri Late 10:00–23:00 • Sat 10:00–16:00</div>
+    <div style="margin-top:28px;color:rgba(255,255,255,0.85);font-size:1.1rem;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:8px"><i class="fas fa-clock"></i> Mon-Fri 9:00-20:00</div>
+      <div style="display:flex;align-items:center;gap:8px"><i class="fas fa-phone"></i> (555) 123-GLOW</div>
+      <div style="display:flex;align-items:center;gap:8px"><i class="fas fa-shield-alt"></i> FDA Approved</div>
+    </div>
   </div>
 </section>
 
@@ -730,76 +1075,117 @@
 
   <!-- ABOUT -->
   <section id="about" class="reveal">
-    <h2>About Us</h2>
-    <p class="lead">We combine clinical expertise with a restful, refined atmosphere — delivering targeted facial treatments and measurable results that enhance wellness and beauty.</p>
-    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=90" alt="Luxury clinic interior" style="width:100%;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.7);margin-top:20px">
+    <h2>About Urban Aesthetic</h2>
+    <p class="lead">Founded in 2018, Urban Aesthetic & Therapy represents the fusion of medical excellence and luxury wellness. Our state-of-the-art facility houses the latest FDA-approved technologies, operated by board-certified practitioners with over 50 combined years of experience in aesthetic medicine.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:center">
+      <div>
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=90" alt="Modern clinic interior" style="width:100%;border-radius:20px;box-shadow:var(--shadow-heavy)">
+      </div>
+      <div style="padding:20px">
+        <h3 style="color:var(--gold-1);font-size:1.8rem;margin-bottom:20px;font-family:'Playfair Display',serif">Why Choose Us?</h3>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <i class="fas fa-certificate" style="color:var(--gold-1);font-size:1.2rem"></i>
+            <span>Board-certified aesthetic practitioners</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <i class="fas fa-microscope" style="color:var(--gold-1);font-size:1.2rem"></i>
+            <span>Latest FDA-approved technologies</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <i class="fas fa-heart" style="color:var(--gold-1);font-size:1.2rem"></i>
+            <span>15,000+ successful treatments delivered</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <i class="fas fa-award" style="color:var(--gold-1);font-size:1.2rem"></i>
+            <span>Winner: Best Aesthetic Clinic 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="reveal">
-    <h2>Facial Services</h2>
-    <p class="lead">Carefully curated facial & aesthetic offerings — each with clear durations and transparent pricing.</p>
+    <h2>Premium Aesthetic Treatments</h2>
+    <p class="lead">Our comprehensive suite of advanced aesthetic treatments combines cutting-edge technology with personalized care. Each treatment is performed by licensed professionals using FDA-approved equipment and pharmaceutical-grade products.</p>
 
     <div class="services">
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1400&q=90" alt="Hydrafacial Treatment">
-        <h3>HydraFacial — Signature Glow</h3>
-        <p>Deep cleanse, painless extraction, and intense hydration — immediate glow and long-term improvements with LED boost.</p>
-        <div class="meta"><div>45–60 min</div><div class="price">$120</div></div>
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=90" alt="HydraFacial MD Treatment">
+        <h3>HydraFacial MD — Medical Grade</h3>
+        <p>The gold standard in facial treatments. Our medical-grade HydraFacial MD combines cleansing, exfoliation, extraction, and hydration with antioxidant infusion for immediate, visible results.</p>
+        <div class="meta"><div class="duration">60 min</div><div class="price">$185</div></div>
       </article>
 
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1400&q=90" alt="Diamond Microdermabrasion">
-        <h3>Diamond Microdermabrasion</h3>
-        <p>Exfoliation treatment that removes dead skin cells, reduces fine lines and reveals smoother, brighter complexion.</p>
-        <div class="meta"><div>40–50 min</div><div class="price">$95</div></div>
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1400&q=90" alt="Medical Microneedling Treatment">
+        <h3>Medical Microneedling + PRP</h3>
+        <p>Advanced collagen induction therapy using sterile microneedles combined with platelet-rich plasma. Clinically proven to reduce scarring, fine lines, and improve skin texture.</p>
+        <div class="meta"><div class="duration">90 min</div><div class="price">$450</div></div>
       </article>
 
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=90" alt="LED Light Therapy">
-        <h3>LED Light Therapy Facial</h3>
-        <p>Non-invasive phototherapy to stimulate collagen, reduce inflammation, and accelerate healing — perfect standalone treatment.</p>
-        <div class="meta"><div>30–40 min</div><div class="price">$90</div></div>
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1400&q=90" alt="Morpheus8 RF Microneedling">
+        <h3>Morpheus8 RF Microneedling</h3>
+        <p>Revolutionary fractional radiofrequency microneedling technology. Stimulates collagen production deep within the skin, providing dramatic skin tightening and contouring results.</p>
+        <div class="meta"><div class="duration">75 min</div><div class="price">$650</div></div>
       </article>
 
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1400&q=90" alt="Chemical Peel">
-        <h3>Chemical Peel Treatment</h3>
-        <p>Professional-grade peel to treat acne, pigmentation, and aging — customized strength for your skin type.</p>
-        <div class="meta"><div>45–60 min</div><div class="price">$110</div></div>
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1400&q=90" alt="Medical Grade Chemical Peel">
+        <h3>VI Peel — Medical Grade</h3>
+        <p>Professional-strength chemical peel featuring TCA, phenol, and vitamin C. Effectively treats melasma, acne scarring, sun damage, and signs of aging with minimal downtime.</p>
+        <div class="meta"><div class="duration">45 min</div><div class="price">$295</div></div>
       </article>
 
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=1400&q=90" alt="Anti-Aging Facial">
-        <h3>Anti-Aging Rejuvenation Facial</h3>
-        <p>Luxury facial combining serums, massage, and advanced techniques to reduce wrinkles and restore youthful glow.</p>
-        <div class="meta"><div>60–75 min</div><div class="price">$135</div></div>
+        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1400&q=90" alt="Botox and Dermal Fillers">
+        <h3>Botox ® & Dermal Fillers</h3>
+        <p>FDA-approved neuromodulator and hyaluronic acid fillers administered by board-certified practitioners. Reduce fine lines, restore volume, and achieve natural-looking results.</p>
+        <div class="meta"><div class="duration">30 min</div><div class="price">$12/unit</div></div>
       </article>
 
       <article class="service">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1400&q=90" alt="Oxygen Facial">
-        <h3>Oxygen Infusion Facial</h3>
-        <p>Pressurized oxygen with vitamins and antioxidants to plump, hydrate and revitalize tired, dull complexions.</p>
-        <div class="meta"><div>50–60 min</div><div class="price">$125</div></div>
+        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=1400&q=90" alt="CoolSculpting Body Contouring">
+        <h3>CoolSculpting ® Elite</h3>
+        <p>FDA-cleared non-surgical fat reduction technology. Freeze away stubborn fat cells permanently with no downtime. Clinically proven to reduce fat by up to 25% per treatment.</p>
+        <div class="meta"><div class="duration">35 min</div><div class="price">$750</div></div>
       </article>
     </div>
 
-    <!-- Pricing pack cards -->
+    <!-- Professional Treatment Packages -->
     <div id="pricing" class="pricing">
       <div class="price-card">
-        <h4>Starter Facial Pack</h4>
-        <div class="price">$320 (3 sessions)</div>
-        <div style="color:var(--muted);margin-top:10px;line-height:1.5">Recommended monthly for maintenance. Mix & match any facials.</div>
+        <h4><i class="fas fa-star" style="color:var(--gold-1);margin-right:8px"></i>Essential Wellness Package</h4>
+        <div class="price">$485 <span style="font-size:0.7em;color:var(--muted)">Save $70</span></div>
+        <div style="color:var(--text-secondary);margin-top:12px;line-height:1.6;font-size:0.95rem">
+          • 3 HydraFacial MD sessions<br>
+          • Complimentary skin consultation<br>
+          • Professional skincare regimen
+        </div>
+      </div>
+      <div class="price-card" style="transform:scale(1.05);border:2px solid var(--gold-1)">
+        <div style="background:var(--gold-1);color:#0a0a0a;text-align:center;margin:-24px -24px 20px;padding:8px;font-weight:700;border-radius:14px 14px 0 0">MOST POPULAR</div>
+        <h4><i class="fas fa-crown" style="color:var(--gold-1);margin-right:8px"></i>Total Transformation</h4>
+        <div class="price">$1,850 <span style="font-size:0.7em;color:var(--muted)">Save $350</span></div>
+        <div style="color:var(--text-secondary);margin-top:12px;line-height:1.6;font-size:0.95rem">
+          • 2 Morpheus8 treatments<br>
+          • 3 HydraFacial MD sessions<br>
+          • 1 VI Peel treatment<br>
+          • Botox touch-up (20 units)
+        </div>
       </div>
       <div class="price-card">
-        <h4>Glow Boost Package</h4>
-        <div class="price">$550 (5 sessions)</div>
-        <div style="color:var(--muted);margin-top:10px;line-height:1.5">Best for pigmentation, texture & overall skin transformation.</div>
-      </div>
-      <div class="price-card">
-        <h4>Ultimate Rejuvenation</h4>
-        <div class="price">$950 (8 sessions)</div>
-        <div style="color:var(--muted);margin-top:10px;line-height:1.5">Complete skin renewal program with customized treatment plan.</div>
+        <h4><i class="fas fa-gem" style="color:var(--gold-1);margin-right:8px"></i>Executive Rejuvenation</h4>
+        <div class="price">$3,200 <span style="font-size:0.7em;color:var(--muted)">Save $600</span></div>
+        <div style="color:var(--text-secondary);margin-top:12px;line-height:1.6;font-size:0.95rem">
+          • 3 Morpheus8 treatments<br>
+          • 4 HydraFacial MD sessions<br>
+          • Botox & filler consultation<br>
+          • Priority booking access
+        </div>
       </div>
     </div>
 
@@ -860,25 +1246,143 @@
     <p style="margin-top:20px;color:var(--muted);text-align:center">Note: Friday late hours are for specialist sessions & package treatments — please book early.</p>
   </section>
 
+  <!-- CERTIFICATIONS & CREDENTIALS -->
+  <section id="certifications" class="reveal" style="background:linear-gradient(135deg,rgba(212,175,55,0.05),rgba(212,175,55,0.02));margin-top:0;padding-top:80px">
+    <h2>Certifications & Credentials</h2>
+    <p class="lead">Recognized excellence in aesthetic medicine with industry-leading certifications and memberships.</p>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-top:50px;align-items:center">
+      <div style="text-align:center;padding:30px;background:var(--card-bg);border-radius:var(--border-radius);border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="cert-card">
+        <i class="fas fa-certificate" style="font-size:3rem;color:var(--gold-1);margin-bottom:15px"></i>
+        <h4 style="color:var(--gold-1);margin-bottom:8px">FDA Approved</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem">All devices & treatments</p>
+      </div>
+      <div style="text-align:center;padding:30px;background:var(--card-bg);border-radius:var(--border-radius);border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="cert-card">
+        <i class="fas fa-award" style="font-size:3rem;color:var(--gold-1);margin-bottom:15px"></i>
+        <h4 style="color:var(--gold-1);margin-bottom:8px">ASLMS Member</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem">Laser & Energy Society</p>
+      </div>
+      <div style="text-align:center;padding:30px;background:var(--card-bg);border-radius:var(--border-radius);border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="cert-card">
+        <i class="fas fa-shield-alt" style="font-size:3rem;color:var(--gold-1);margin-bottom:15px"></i>
+        <h4 style="color:var(--gold-1);margin-bottom:8px">Medical Insurance</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem">$5M liability coverage</p>
+      </div>
+      <div style="text-align:center;padding:30px;background:var(--card-bg);border-radius:var(--border-radius);border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="cert-card">
+        <i class="fas fa-microscope" style="font-size:3rem;color:var(--gold-1);margin-bottom:15px"></i>
+        <h4 style="color:var(--gold-1);margin-bottom:8px">Advanced Training</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem">Continuous education</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS GALLERY -->
+  <section id="results" class="reveal">
+    <h2>Real Results</h2>
+    <p class="lead">Witness the transformative power of our treatments. These authentic before and after photos showcase the remarkable results our clients achieve.</p>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:50px">
+      <div style="background:var(--card-bg);border-radius:var(--border-radius);overflow:hidden;border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="result-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;height:200px">
+          <div style="background:url('https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.8);color:white;padding:4px 8px;border-radius:4px;font-size:0.8rem">BEFORE</div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:var(--gold-1);color:#0a0a0a;padding:4px 8px;border-radius:4px;font-size:0.8rem">AFTER</div>
+          </div>
+        </div>
+        <div style="padding:20px">
+          <h4 style="color:var(--gold-1);margin-bottom:8px">Morpheus8 RF Treatment</h4>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.5">3 sessions over 6 months. Significant improvement in skin texture and firmness.</p>
+        </div>
+      </div>
+      
+      <div style="background:var(--card-bg);border-radius:var(--border-radius);overflow:hidden;border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="result-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;height:200px">
+          <div style="background:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.8);color:white;padding:4px 8px;border-radius:4px;font-size:0.8rem">BEFORE</div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:var(--gold-1);color:#0a0a0a;padding:4px 8px;border-radius:4px;font-size:0.8rem">AFTER</div>
+          </div>
+        </div>
+        <div style="padding:20px">
+          <h4 style="color:var(--gold-1);margin-bottom:8px">VI Peel + HydraFacial</h4>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.5">Combination treatment for acne scarring and hyperpigmentation.</p>
+        </div>
+      </div>
+      
+      <div style="background:var(--card-bg);border-radius:var(--border-radius);overflow:hidden;border:1px solid rgba(212,175,55,0.1);transition:var(--transition)" class="result-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;height:200px">
+          <div style="background:url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.8);color:white;padding:4px 8px;border-radius:4px;font-size:0.8rem">BEFORE</div>
+          </div>
+          <div style="background:url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=90') center/cover;position:relative">
+            <div style="position:absolute;top:10px;left:10px;background:var(--gold-1);color:#0a0a0a;padding:4px 8px;border-radius:4px;font-size:0.8rem">AFTER</div>
+          </div>
+        </div>
+        <div style="padding:20px">
+          <h4 style="color:var(--gold-1);margin-bottom:8px">Botox & Dermal Fillers</h4>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.5">Non-surgical facial rejuvenation with natural-looking results.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align:center;margin-top:40px">
+      <div style="background:var(--card-bg);border-radius:var(--border-radius);padding:30px;border:1px solid rgba(212,175,55,0.15);display:inline-block">
+        <p style="color:var(--text-secondary);margin-bottom:12px;font-size:0.95rem">*Individual results may vary. Photos shown with patient consent.</p>
+        <p style="color:var(--gold-1);font-weight:600">Schedule your consultation to discuss your aesthetic goals</p>
+      </div>
+    </div>
+  </section>
+
   <!-- TEAM -->
   <section id="team" class="reveal">
-    <h2>Meet Our Aestheticians</h2>
-    <p class="lead">Certified facial therapists and skincare specialists trained in the latest techniques.</p>
+    <h2>Meet Our Medical Team</h2>
+    <p class="lead">Our board-certified practitioners and licensed aesthetic professionals bring decades of combined experience in advanced aesthetic medicine and dermatological care.</p>
     <div class="team">
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=90" alt="Dr Ayesha">
-        <h4>Dr. Ayesha Khan</h4>
-        <div style="color:var(--muted)">Lead Aesthetic Practitioner • 12 yrs experience</div>
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=90" alt="Dr. Sarah Chen, Medical Director">
+        <h4>Dr. Sarah Chen, MD</h4>
+        <div style="color:var(--text-secondary);line-height:1.5">
+          Medical Director & Board-Certified Dermatologist<br>
+          <span style="color:var(--gold-1);font-size:0.9rem">
+            <i class="fas fa-graduation-cap"></i> Harvard Medical School<br>
+            <i class="fas fa-award"></i> 15+ years aesthetic medicine
+          </span>
+        </div>
       </div>
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=90" alt="Sarah">
-        <h4>Sarah Mitchell</h4>
-        <div style="color:var(--muted)">Senior Facial Therapist • HydraFacial Specialist</div>
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=90" alt="Dr. Michael Rodriguez, Aesthetic Physician">
+        <h4>Dr. Michael Rodriguez, MD</h4>
+        <div style="color:var(--text-secondary);line-height:1.5">
+          Board-Certified Aesthetic Physician<br>
+          <span style="color:var(--gold-1);font-size:0.9rem">
+            <i class="fas fa-certificate"></i> Injectable Specialist<br>
+            <i class="fas fa-microscope"></i> Morpheus8 Certified
+          </span>
+        </div>
       </div>
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=90" alt="Leila">
-        <h4>Leila Morgan</h4>
-        <div style="color:var(--muted)">Skin Scientist & Chemical Peel Expert</div>
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=90" alt="Jennifer Walsh, Clinical Aesthetician">
+        <h4>Jennifer Walsh, RN</h4>
+        <div style="color:var(--text-secondary);line-height:1.5">
+          Master Clinical Aesthetician & Registered Nurse<br>
+          <span style="color:var(--gold-1);font-size:0.9rem">
+            <i class="fas fa-heart"></i> HydraFacial Master<br>
+            <i class="fas fa-leaf"></i> Advanced Chemical Peels
+          </span>
+        </div>
+      </div>
+      <div class="member">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=90" alt="Amanda Foster, Practice Manager">
+        <h4>Amanda Foster</h4>
+        <div style="color:var(--text-secondary);line-height:1.5">
+          Practice Manager & Patient Care Coordinator<br>
+          <span style="color:var(--gold-1);font-size:0.9rem">
+            <i class="fas fa-users"></i> 10+ years patient care<br>
+            <i class="fas fa-star"></i> Client satisfaction expert
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -1050,9 +1554,25 @@
 
 </div>
 
-<!-- SCRIPTS: particles, reveal, theme, modal, forms -->
+<!-- ENHANCED SCRIPTS: loading, particles, reveal, theme, modal, forms, interactions -->
 <script>
-  /* ---------- PARTICLES (gold dust) ---------- */
+  /* ---------- PAGE LOADER ---------- */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('pageLoader').classList.add('fade-out');
+      setTimeout(() => {
+        document.getElementById('pageLoader').style.display = 'none';
+      }, 500);
+    }, 2000);
+  });
+  
+  /* ---------- SCROLL PROGRESS ---------- */
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = scrolled + '%';
+  });
+  
+  /* ---------- ENHANCED PARTICLES (gold dust) ---------- */
   (function(){
     const canvas = document.getElementById('particles');
     if(!canvas) return;
@@ -1063,29 +1583,33 @@
       w = canvas.width = innerWidth; 
       h = canvas.height = innerHeight; 
     });
-    const N = Math.floor((w*h)/90000);
+    const N = Math.floor((w*h)/120000); // Reduced particle count for better performance
     const parts = [];
     for(let i=0;i<N;i++){
       parts.push({ 
         x:Math.random()*w, 
         y:Math.random()*h, 
-        r:Math.random()*2+0.6, 
-        d:Math.random()*0.7+0.2, 
-        a:Math.random()*0.9+0.1 
+        r:Math.random()*1.5+0.5, 
+        d:Math.random()*0.5+0.2, 
+        a:Math.random()*0.6+0.2,
+        pulse: Math.random() * Math.PI * 2
       });
     }
     function draw(){
       ctx.clearRect(0,0,w,h);
       for(const p of parts){
         ctx.beginPath();
-        ctx.fillStyle = 'rgba(232,200,124,'+p.a+')';
+        const alpha = p.a + Math.sin(p.pulse) * 0.3;
+        ctx.fillStyle = `rgba(212,175,55,${Math.max(0, alpha)})`;
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         ctx.fill();
         p.y += p.d;
-        p.x += Math.sin((p.y+p.x)/100)*0.3;
+        p.x += Math.sin((p.y+p.x)/120)*0.2;
+        p.pulse += 0.02;
         if(p.y>h+10){ 
           p.y = -10; 
-          p.x = Math.random()*w; 
+          p.x = Math.random()*w;
+          p.pulse = Math.random() * Math.PI * 2; 
         }
       }
       requestAnimationFrame(draw);
@@ -1160,16 +1684,78 @@
     e.target.reset();
   });
 
-  /* ---------- smooth nav links ---------- */
+  /* ---------- ENHANCED INTERACTIONS ---------- */
+  // Certification cards hover effect
+  document.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-8px) scale(1.02)';
+      card.style.boxShadow = 'var(--shadow-medium)';
+      card.style.borderColor = 'rgba(212,175,55,0.3)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+      card.style.boxShadow = 'none';
+      card.style.borderColor = 'rgba(212,175,55,0.1)';
+    });
+  });
+  
+  // Result cards hover effect
+  document.querySelectorAll('.result-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-6px)';
+      card.style.boxShadow = 'var(--shadow-medium)';
+      card.style.borderColor = 'rgba(212,175,55,0.25)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = 'none';
+      card.style.borderColor = 'rgba(212,175,55,0.1)';
+    });
+  });
+  
+  /* ---------- SMOOTH NAV LINKS WITH OFFSET ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
       if(target){
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const headerHeight = 85;
+        const targetPosition = target.offsetTop - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
+  
+  /* ---------- PARALLAX EFFECT FOR HERO ---------- */
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.getElementById('hero');
+    if (hero && scrolled < window.innerHeight) {
+      hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+  
+  /* ---------- TYPING EFFECT FOR HERO SUBTITLE ---------- */
+  const subtitleElement = document.querySelector('#hero p');
+  if (subtitleElement) {
+    const originalText = subtitleElement.textContent;
+    subtitleElement.textContent = '';
+    let i = 0;
+    
+    setTimeout(() => {
+      const typeWriter = () => {
+        if (i < originalText.length) {
+          subtitleElement.textContent += originalText.charAt(i);
+          i++;
+          setTimeout(typeWriter, 30);
+        }
+      };
+      typeWriter();
+    }, 1000);
+  }
 
 </script>
 </body>
